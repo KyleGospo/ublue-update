@@ -119,16 +119,14 @@ def run_updates(system, system_update_available):
         os.environ["TOPGRADE_SKIP_BRKC_NOTIFY"] = "true"
         out = subprocess.run(
             [
-                "/usr/bin/topgrade",
-                "--config",
-                "/usr/share/ublue-update/topgrade-system.toml",
+                "/usr/libexec/ublue-system-update.py"
             ],
             capture_output=True,
         )
         log.debug(out.stdout.decode("utf-8"))
 
         if out.returncode != 0:
-            print(f"topgrade returned code {out.returncode}, program output:")
+            print(f"ublue-system-update.py returned code {out.returncode}, program output:")
             print(out.stdout.decode("utf-8"))
             os._exit(out.returncode)
 
