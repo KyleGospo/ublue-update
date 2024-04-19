@@ -117,9 +117,7 @@ def run_updates(system, system_update_available):
         """System"""
         out = subprocess.run(
             [
-                "/usr/bin/topgrade",
-                "--config",
-                "/usr/share/ublue-update/topgrade-system.toml",
+                "/usr/libexec/ublue-system-update.py"
             ],
             capture_output=True,
         )
@@ -127,7 +125,7 @@ def run_updates(system, system_update_available):
 
         if out.returncode != 0:
             print(
-                f"topgrade returned code {out.returncode}, program output:"
+                f"ublue-system-update.py returned code {out.returncode}, program output:"
             )
             print(out.stdout.decode("utf-8"))
             os._exit(out.returncode)

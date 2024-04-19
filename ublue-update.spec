@@ -1,6 +1,6 @@
 Name:          {{{ git_dir_name }}}
 Vendor:        ublue-os
-Version:       {{{ ublue_update_version }}}
+Version:       100.{{{ ublue_update_version }}}.bazzite
 Release:       1%{?dist}
 Summary:       Centralized update service/checker made for Universal Blue
 License:       Apache-2.0
@@ -66,6 +66,7 @@ fi
 
 %files -f %{pyproject_files}
 %attr(0755,root,root) %{_bindir}/%{name}
+%attr(0644,root,root) %{_exec_prefix}/libexec/ublue-system-update.py
 %attr(0644,root,root) %{_exec_prefix}/lib/systemd/system/%{NAME}.service
 %attr(0644,root,root) %{_exec_prefix}/lib/systemd/system/%{NAME}.timer
 %attr(0644,root,root) %{_exec_prefix}/lib/systemd/system-preset/00-%{NAME}.preset
