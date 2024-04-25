@@ -66,7 +66,7 @@ fi
 
 %files -f %{pyproject_files}
 %attr(0755,root,root) %{_bindir}/%{name}
-%attr(0644,root,root) %{_exec_prefix}/libexec/ublue-system-update.py
+%attr(0755,root,root) %{_bindir}/ublue-system-update
 %attr(0644,root,root) %{_exec_prefix}/lib/systemd/system/%{NAME}.service
 %attr(0644,root,root) %{_exec_prefix}/lib/systemd/system/%{NAME}.timer
 %attr(0644,root,root) %{_exec_prefix}/lib/systemd/system-preset/00-%{NAME}.preset

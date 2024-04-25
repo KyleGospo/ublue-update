@@ -119,7 +119,7 @@ def run_updates(system, system_update_available):
         os.environ["TOPGRADE_SKIP_BRKC_NOTIFY"] = "true"
         out = subprocess.run(
             [
-                "/usr/libexec/ublue-system-update.py"
+                "/usr/bin/ublue-system-update"
             ],
             capture_output=True,
         )
