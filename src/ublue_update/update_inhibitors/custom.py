@@ -1,4 +1,3 @@
-import psutil
 import subprocess
 from typing import List, Optional
 from logging import getLogger

@@ -1,6 +1,5 @@
 import psutil
 import subprocess
-from typing import Optional
 from logging import getLogger
 from ublue_update.config import cfg
 
