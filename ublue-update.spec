@@ -49,7 +49,7 @@ flake8 src
 %install
 %pyproject_install
 %pyproject_save_files ublue_update
-cp -rp files/usr %{buildroot}
+cp -rp files/usr files/etc %{buildroot}
 
 %pre
 if [ ! -x /usr/bin/topgrade ]
@@ -68,8 +68,8 @@ fi
 %attr(0755,root,root) %{_bindir}/%{name}
 %attr(0644,root,root) %{_exec_prefix}/lib/systemd/system/%{NAME}.service
 %attr(0644,root,root) %{_exec_prefix}/lib/systemd/system/%{NAME}.timer
-%attr(0644,root,root) %{_exec_prefix}/lib/systemd/system-preset/60-%{NAME}.preset
-%attr(0644,root,root) %{_exec_prefix}/etc/%{NAME}/*.toml
+%attr(0644,root,root) %{_exec_prefix}/lib/systemd/system-preset/00-%{NAME}.preset
+%attr(0644,root,root) %{_sysconfdir}/%{NAME}/*.toml
 %attr(0644,root,root) %{_datadir}/%{NAME}/*.toml
 %attr(0644,root,root) %{_datadir}/polkit-1/rules.d/%{NAME}.rules
 
