@@ -28,7 +28,8 @@ def check_network_not_metered() -> dict:
     # Use busctl CLI to query the NetworkManager via D-Bus for
     # the current metering status of the connection.
     # The output on stdout will be "<datatype> <value>".
-    metered_status = subprocess.run([
+    metered_status = subprocess.run(
+        [
             "busctl",
             "get-property",
             "org.freedesktop.NetworkManager",
