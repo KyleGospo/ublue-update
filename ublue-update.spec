@@ -63,6 +63,7 @@ cp -rp files/usr files/etc %{buildroot}
 %attr(0755,root,root) %{_bindir}/ublue-system-update
 %attr(0644,root,root) %{_exec_prefix}/lib/systemd/system/%{NAME}.service
 %attr(0644,root,root) %{_exec_prefix}/lib/systemd/system/%{NAME}.timer
+%attr(0644,root,root) %{_exec_prefix}/lib/systemd/system-preset/60-%{NAME}.preset
 %attr(0644,root,root) %{_sysconfdir}/%{NAME}/*.toml
 %attr(0644,root,root) %{_datadir}/%{NAME}/*.toml
 %attr(0644,root,root) %{_datadir}/polkit-1/rules.d/%{NAME}.rules
