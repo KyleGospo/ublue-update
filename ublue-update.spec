@@ -30,6 +30,7 @@ BuildRequires: python-wheel
 Requires:      skopeo
 Requires:      libnotify
 Requires:      systemd
+Requires:      topgrade
 
 %global sub_name %{lua:t=string.gsub(rpm.expand("%{NAME}"), "^ublue%-", ""); print(t)}
 
@@ -51,13 +52,6 @@ flake8 src
 %pyproject_save_files ublue_update
 cp -rp files/usr files/etc %{buildroot}
 
-%pre
-if [ ! -x /usr/bin/topgrade ]
-then
-    echo "Topgrade not installed. Please install Topgrade (https://github.com/topgrade-rs/topgrade) to use %{NAME}."
-    exit 1
-fi
-
 %post
 %systemd_post %{NAME}.timer
 
@@ -69,7 +63,6 @@ fi
 %attr(0755,root,root) %{_bindir}/ublue-system-update
 %attr(0644,root,root) %{_exec_prefix}/lib/systemd/system/%{NAME}.service
 %attr(0644,root,root) %{_exec_prefix}/lib/systemd/system/%{NAME}.timer
-%attr(0644,root,root) %{_exec_prefix}/lib/systemd/system-preset/00-%{NAME}.preset
 %attr(0644,root,root) %{_sysconfdir}/%{NAME}/*.toml
 %attr(0644,root,root) %{_datadir}/%{NAME}/*.toml
 %attr(0644,root,root) %{_datadir}/polkit-1/rules.d/%{NAME}.rules
