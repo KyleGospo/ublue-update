@@ -52,6 +52,7 @@ def system_update_check():
         return False
     """Digests do not match, so updates are available"""
     log.info("System update available.")
+    print("Bazzite Update available and will be applied, please ignore the above changelog. Image digest: " + latest_digest)
     return True
 
 
